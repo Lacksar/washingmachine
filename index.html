@@ -6,10 +6,10 @@
 <body>
 
   <div >
-    <img src="https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/81/724209/1.jpg?1611"/>
+    <img src="https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/81/724209/1.jpg?1611" class="i "/>
   
   </div>
- 
+  <button class="onoff" onclick="onoff(this)"><div style>off</div></button>
   
 </body>
 
@@ -41,14 +41,82 @@ img{
   width:180px;
   margin-top:60px;
   margin-right:5px;
-  animation: round 2s linear infinite;
 }
+
+.img{
+    animation: round 2s linear infinite;
+}
+
 
 @keyframes round{
   from{transform:rotate(0deg)}
   to{transform:rotate(720deg)}
 }
 
+
+
+.onoff
+{
+  width:40px;
+  height:40px;
+  padding:1px 2px 3px 3px;	
+  font-size:12px;
+  background:lightgray;
+  text-align:center;	
+
+}
+.onoff div
+{
+  width:18px;
+  height:18px;
+  min-height:18px;	
+  background:lightgray;
+  overflow:hidden;
+  border-top:1px solid gray;
+  border-right:1px solid white;
+  border-bottom:1px solid white;
+  border-left:1px solid gray;			
+  margin:0 auto;
+  color:gray;
+}
+
 </style>
+
+
+
+<script>
+    
+    
+    var buttonstate=0;
+function onoff(element)
+{
+  buttonstate= 1 - buttonstate;
+  var blabel, bstyle, bcolor;
+  if(buttonstate)
+  {
+    blabel="on";
+    bstyle="green";
+    bcolor="lightgreen";
+    document.getElementsByClassName("i")[0].classList.add("img");
+  }
+  else
+  {
+    blabel="off";
+    bstyle="lightgray";
+    bcolor="gray";
+    document.getElementsByClassName("i")[0].classList.remove("img");
+
+  }
+  var child=element.firstChild;
+  child.style.background=bstyle;
+  child.style.color=bcolor;
+  child.innerHTML=blabel;
+}
+    
+    
+    
+    
+    
+    </script>
 
 </html>
